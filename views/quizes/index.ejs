@@ -1,0 +1,27 @@
+<form method="get" action="/quizes">
+  <input type="text" name="search" value="Texto a buscar" />
+  <input type="submit" value="Buscar" />
+</form>
+
+<% if (quizes.length > 0) {%>
+<table>
+  <% var i; for (i = 0; i < quizes.length; i++) { %>
+  <tr>
+    <td>
+      <a href="quizes/"<%= quizes[i].id %>"><%= quizes[i].pregunta %>
+      </a>
+    </td>
+    <td>
+      <a href="quizes/"<%= quizes[i].id %>/edit"><button>editar</button>
+      </a>
+    </td>
+
+  </tr>
+  <% } %>
+</table>
+<% } else { %>
+<p>No hay ningún resultado para su búsqueda</p>
+<% } %>
+<a href="/quizes/new">
+  <button type="button">Crear pregunta</button>
+</a>
