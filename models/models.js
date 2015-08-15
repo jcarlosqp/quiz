@@ -32,13 +32,12 @@ var Quiz = sequelize.import(quiz_path);
 exports.Quiz = Quiz; 
 
 
-sequelize.sync().success(function() {
+sequelize.sync().then(function() {
   
-        Quiz.count().success(function (count){
+        Quiz.count().then(function (count){
           if(count === 0) {   
-            Quiz.create( 
-              {pregunta: 'Capital de Italia',   respuesta: 'Roma'} // estos quizes pertenecen al usuario pepe (2)
-                   
+            Quiz.create(  {pregunta: 'Capital de Italia',   respuesta: 'Roma'};
+            Quiz.create(  {pregunta: 'Capital de Portugal',   respuesta: 'Lisboa'} 
             ).success(function(){console.log('Base de datos inicializada')});
           };
         
